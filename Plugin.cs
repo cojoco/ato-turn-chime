@@ -14,13 +14,14 @@ namespace TurnChime
     {
         public const string PluginGuid = "com.cojoco.turnchime";
         public const string PluginName = "Turn Chime";
-        public const string PluginVersion = "0.1.0";
+        public const string PluginVersion = "0.2.0";
 
         internal static ManualLogSource Log;
 
         internal static ConfigEntry<bool> OnHeroTurn;
         internal static ConfigEntry<bool> OnCardRewards;
         internal static ConfigEntry<bool> OnMapChoice;
+        internal static ConfigEntry<bool> OnlyInMultiplayer;
         internal static ConfigEntry<bool> OnlyWhenUnfocused;
         internal static ConfigEntry<float> Volume;
         internal static ConfigEntry<string> SoundFile;
@@ -34,6 +35,8 @@ namespace TurnChime
                 "Chime when the card rewards screen opens after a combat.");
             OnMapChoice = Config.Bind("Events", "MapChoice", true,
                 "Chime when the map is ready for you to pick the next node.");
+            OnlyInMultiplayer = Config.Bind("Sound", "OnlyInMultiplayer", true,
+                "Only chime in co-op games. Set to false to also chime in single player.");
             OnlyWhenUnfocused = Config.Bind("Sound", "OnlyWhenUnfocused", false,
                 "Only chime while the game window is not focused.");
             Volume = Config.Bind("Sound", "Volume", 1f,
@@ -76,6 +79,10 @@ namespace TurnChime
         internal static void Play(string reason)
         {
             if (instance == null)
+            {
+                return;
+            }
+            if (Plugin.OnlyInMultiplayer.Value && (GameManager.Instance == null || !GameManager.Instance.IsMultiplayer()))
             {
                 return;
             }

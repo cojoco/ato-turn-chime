@@ -1,12 +1,12 @@
 # Turn Chime
 
-A small BepInEx 5 mod for **Across the Obelisk** that plays a sound when the game needs you, so you can look away from the window (or alt-tab) while waiting for friends in co-op.
+A small BepInEx 5 mod for **Across the Obelisk** that plays a sound when the game needs you, so you can look away from the window (or alt-tab) while waiting for friends in co-op. By default it only chimes in co-op games; single player can be turned on in the settings.
 
 **Status:** tested in single player on 2026-10-20: the sound plays on hero turns (also with the game in the background), on the card rewards screen and on the map. Co-op has not been tested yet.
 
 ## When it chimes
 
-- **Your hero's turn** in combat. In co-op only for heroes you own; in single player for every hero.
+- **Your hero's turn** in combat. In co-op only for heroes you own; in single player (if enabled) for every hero.
 - **Card rewards** after a combat.
 - **Map choice**, when the map is ready for you to pick the next node.
 
@@ -21,6 +21,7 @@ The mod changes nothing about gameplay. Only the players who want the chime need
 | `[Events] HeroTurn` | `true` | Chime at the start of your hero's turn |
 | `[Events] CardRewards` | `true` | Chime when the card rewards screen opens |
 | `[Events] MapChoice` | `true` | Chime when the map is ready for the next node |
+| `[Sound] OnlyInMultiplayer` | `true` | Only chime in co-op games; set to `false` to also chime in single player |
 | `[Sound] OnlyWhenUnfocused` | `false` | Only chime while the game window is not focused |
 | `[Sound] Volume` | `1` | Chime volume, 0 to 1 |
 | `[Sound] SoundFile` | empty | A `.wav` or `.ogg` file to play instead of the game's sound. A relative path is looked up in `BepInEx/config/` |
@@ -29,7 +30,7 @@ Restart the game after changing them. If the game itself pauses while unfocused,
 
 ## Logs
 
-`BepInEx/LogOutput.log` gets `Turn Chime 0.1.0 loaded.` at startup and one `Chime: <reason>` line per sound (for example `Chime: Gustav's turn`).
+`BepInEx/LogOutput.log` gets `Turn Chime 0.2.0 loaded.` at startup and one `Chime: <reason>` line per sound (for example `Chime: Gustav's turn`).
 
 ## Install
 

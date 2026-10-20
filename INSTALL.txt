@@ -1,7 +1,8 @@
 TURN CHIME - install guide (Across the Obelisk, Steam, Windows)
 
 Plays a sound when it is your hero's turn, when the card rewards screen
-opens and when the map is ready for the next node. Only you need it: your
+opens and when the map is ready for the next node, in co-op games (single
+player can be turned on in the settings). Only you need it: your
 co-op friends do not have to install it.
 
 1. Open the game folder.
@@ -22,13 +23,14 @@ co-op friends do not have to install it.
 4. Copy TurnChime.dll into the game folder's BepInEx\plugins folder.
 
 5. Optional: open BepInEx\config\com.cojoco.turnchime.cfg in Notepad (it
-   appears after the first start with the mod) to turn single alerts off,
+   appears after the first start with the mod) to also chime in single
+   player (OnlyInMultiplayer = false), to turn single alerts off,
    change the volume, or pick your own .wav/.ogg sound. Restart the game
    after changing it.
 
 Troubleshooting
 - Nothing happens: right-click TurnChime.dll > Properties and tick "Unblock"
   if it is shown, then OK. Check that antivirus did not remove it.
-- Check BepInEx\LogOutput.log: it should say "Turn Chime 0.1.0 loaded" and
+- Check BepInEx\LogOutput.log: it should say "Turn Chime 0.2.0 loaded" and
   a "Chime: ..." line each time a sound plays.
 - To uninstall, delete TurnChime.dll from BepInEx\plugins.
