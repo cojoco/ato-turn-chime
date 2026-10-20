@@ -1,0 +1,34 @@
+TURN CHIME - install guide (Across the Obelisk, Steam, Windows)
+
+Plays a sound when it is your hero's turn, when the card rewards screen
+opens and when the map is ready for the next node. Only you need it: your
+co-op friends do not have to install it.
+
+1. Open the game folder.
+   In Steam, right-click "Across the Obelisk" > Manage > Browse local files.
+   You should see AcrossTheObelisk.exe. Keep this window open.
+
+2. Install BepInEx 5 (the mod loader). Skip this if you already use it.
+   - Go to https://github.com/BepInEx/BepInEx/releases
+   - Download the newest 5.4.x file named BepInEx_win_x64_5.4.x.x.zip
+     (NOT version 6, and NOT the x86 file).
+   - Open the zip and copy EVERYTHING inside it into the game folder, next to
+     AcrossTheObelisk.exe. You should end up with a "BepInEx" folder and a
+     "winhttp.dll" file in the game folder.
+
+3. Start the game once, wait for the main menu, then close it.
+   This creates the BepInEx\plugins folder.
+
+4. Copy TurnChime.dll into the game folder's BepInEx\plugins folder.
+
+5. Optional: open BepInEx\config\com.cojoco.turnchime.cfg in Notepad (it
+   appears after the first start with the mod) to turn single alerts off,
+   change the volume, or pick your own .wav/.ogg sound. Restart the game
+   after changing it.
+
+Troubleshooting
+- Nothing happens: right-click TurnChime.dll > Properties and tick "Unblock"
+  if it is shown, then OK. Check that antivirus did not remove it.
+- Check BepInEx\LogOutput.log: it should say "Turn Chime 0.1.0 loaded" and
+  a "Chime: ..." line each time a sound plays.
+- To uninstall, delete TurnChime.dll from BepInEx\plugins.
